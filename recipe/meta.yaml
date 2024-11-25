@@ -21,6 +21,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - python
+    - pkg-config
   host:
     - libxcb             # [linux]
     - xorg-libx11        # [linux]
