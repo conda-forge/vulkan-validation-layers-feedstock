@@ -26,6 +26,7 @@ requirements:
     - libxcb             # [linux]
     - xorg-libx11        # [linux]
     - xorg-libxrandr     # [linux]
+    - xorg-xorgproto     # [linux]
     - wayland            # [linux]
     - wayland-protocols  # [linux]
 
