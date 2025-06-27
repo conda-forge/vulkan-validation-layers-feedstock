@@ -1,5 +1,5 @@
 {% set name = "vulkan-validation-layers" %}
-{% set version = "1.4.313" %}
+{% set version = "1.4.320" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: cb93167fb216113665c3a95264e87017be0f2a893af6e9dde293ccf287e74224
+  sha256: 96488f23efe7ca71d3ec539c43ed0eacba7ace9adeb052b6fde771c256c1bf66
 
 build:
   number: 0
