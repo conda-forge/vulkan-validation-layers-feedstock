@@ -1,0 +1,64 @@
+schema_version: 1
+
+context:
+  name: vulkan-validation-layers
+  version: "1.4.341.0"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/vulkan-sdk-${{ version }}.tar.gz
+  sha256: 7f521490495e43561f70fe8b6317fd5cc13d4083413f1abf891f50cbabe12238
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+    - ninja
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
+    - python *
+    - pkg-config
+  host:
+    - if: linux
+      then:
+        - libxcb
+        - xorg-libx11
+        - xorg-libxrandr
+        - xorg-xorgproto
+        - wayland
+        - wayland-protocols
+  run_exports:
+    - ${{ pin_subpackage(name, upper_bound="x.x.x") }}
+
+tests:
+  - package_contents:
+      files:
+        - if: win
+          then:
+            - Library/bin/VkLayer_khronos_validation.dll
+            - Library/bin/VkLayer_khronos_validation.json
+          else:
+            - share/vulkan/explicit_layer.d/VkLayer_khronos_validation.json
+            - lib/libVkLayer_khronos_validation.*
+
+about:
+  homepage: https://github.com/KhronosGroup/Vulkan-ValidationLayers
+  summary: Vulkan validation layers to assist developers in the correct usage of the API.
+  description: |
+    Vulkan is an Explicit API, enabling direct control over how GPUs actually work.
+    By design, minimal error checking is done inside a Vulkan driver. Applications have
+    full control and responsibility for correct operation. Any errors in how Vulkan is
+    used can result in a crash. This project provides Vulkan validation layers that can
+    be enabled to assist development by enabling developers to verify their applications
+    correct use of the Vulkan API.
+  license: Apache-2.0
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - JarrettSJohnson
