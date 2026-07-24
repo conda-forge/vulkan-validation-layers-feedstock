@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: vulkan-validation-layers
-  version: "1.4.341.0"
+  version: "1.4.350.1"
 
 package:
   name: ${{ name }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/vulkan-sdk-${{ version }}.tar.gz
-  sha256: 7f521490495e43561f70fe8b6317fd5cc13d4083413f1abf891f50cbabe12238
+  sha256: a299313781987946b6b26553d9f3da34126ebaea6e1bf805beb402d510d3b300
 
 build:
   number: 0
