@@ -5,6 +5,9 @@ conda_build:
   error_overlinking: true
 build_platform:
   osx_arm64: osx_64
+provider:
+  linux_aarch64: native
+  win_arm64: native
 conda_forge_output_validation: true
 conda_build_tool: rattler-build
 conda_install_tool: pixi
